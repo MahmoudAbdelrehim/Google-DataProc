@@ -54,16 +54,19 @@ resource "google_dataproc_cluster" "accelerated_cluster" {
     }
     initialization_action {
       script = "gs://goog-dataproc-initialization-actions-${var.region}/gpu/install_gpu_driver.sh"
+      timeout_sec = 3600
     }
     initialization_action {
       script = "gs://goog-dataproc-initialization-actions-${var.region}/rapids/rapids.sh"
+      timeout_sec = 3600
     }
     initialization_action {
       script = "gs://goog-dataproc-initialization-actions-${var.region}/kafka/kafka.sh"
+      timeout_sec = 3600
     }
     software_config {
       image_version       = "2.0-ubuntu18"
-      optional_components = [ "JUPYTER", "ZEPPELIN", "DOCKER", "PRESTO", "FLINK"]
+      optional_components = [ "JUPYTER", "ZEPPELIN", "DOCKER", "PRESTO", "FLINK", "ZOOKEEPER"]
     }
 
   }
