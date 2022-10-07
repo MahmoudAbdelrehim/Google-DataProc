@@ -7,7 +7,7 @@ variable "region" {
 }
 resource "google_storage_bucket" "spark-nv" {
   project       = var.project_id
-  name          = "rapids-sparknv"
+  name          = "rapids-sparknv-2022"
   location      = var.region
   force_destroy = true
 
