@@ -44,9 +44,9 @@ resource "google_dataproc_cluster" "accelerated_cluster" {
     worker_config {
       accelerators {
         accelerator_type  = "nvidia-tesla-t4"
-        accelerator_count = "2"
+        accelerator_count = "1"
       }
-      num_instances = 2
+      num_instances = 1
       machine_type  = "n1-standard-8"
       disk_config {
         num_local_ssds = 1
